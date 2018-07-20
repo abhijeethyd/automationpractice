@@ -19,7 +19,6 @@ public class Hooks {
 	 * shared state between tests
 	 */
 	public void openBrowser() throws MalformedURLException {
-		System.out.println("Called openBrowser");
 		System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/chromedriver");
 		driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);

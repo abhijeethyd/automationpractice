@@ -26,8 +26,7 @@ public class LetsGoShopping {
 	@Given("^user is logged on to 'Your Logo' website$")
 	public void user_is_logged_on_to_Your_Logo_website() throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
-	   	driver.get("http://automationpractice.com/index.php");	
-	   	yourLogoHomePage = new YourLogoHomePage(driver);
+	   	yourLogoHomePage = new YourLogoHomePage(driver , "http://automationpractice.com/index.php");
 	   	yourLogoLoginPage = yourLogoHomePage.navigateToLoginInPage();
 	   	yourLogoMyAccount = yourLogoLoginPage.logInWithValidUserIntoMyAccount();
 		assertThat(  yourLogoMyAccount.getTitle() , is(equalTo("My account - My Store")));	
