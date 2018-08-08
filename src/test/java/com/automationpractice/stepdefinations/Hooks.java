@@ -23,14 +23,19 @@ public class Hooks {
 	 * shared state between tests
 	 */
 	public void openBrowser() throws MalformedURLException {
-		//System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/chromedriver");
-		//driver = new ChromeDriver();
+
+
+		System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/chromedriver");
+	//	driver = new ChromeDriver();
+
+		
+
 
 		DesiredCapabilities capabilities = DesiredCapabilities.firefox();
 		capabilities.setBrowserName("firefox");
 		capabilities.setPlatform(Platform.LINUX);
-
 		driver = new RemoteWebDriver( new URL("http://localhost:4444/wd/hub") , capabilities );
+
 
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.manage().deleteAllCookies();
@@ -41,7 +46,7 @@ public class Hooks {
 	@After	 
 	public void tearDown() {
 
-		//driver.quit();
+		driver.quit();
 	}
 
 }
